@@ -1,5 +1,8 @@
 # CDK로 IPC Client V2를 Greengrass에 Component로 등록하여 사용하기
 
+[IPC Client V2](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-authorization-policies)에 소개된 
+
+
 ## Greengrass 설치
 
 [greengrass-installation](https://github.com/kyopark2014/iot-greengrass/blob/main/preparation.md#greengrass-installation)에 따라 greengrass 디바이스에 greengrass를 설치하고 core device로 등록합니다.
@@ -125,4 +128,7 @@ CDK로 인프라를 삭제할때에는 "cdk destory"로 진행할 수 있으나,
 cdk destroy --all
 ```
 
+## Reference 
+
+[Use the AWS IoT Device SDK to communicate with the Greengrass nucleus, other components, and AWS IoT Core](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-authorization-policies)
 
