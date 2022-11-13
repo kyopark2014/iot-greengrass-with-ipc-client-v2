@@ -99,4 +99,11 @@ sudo cat /greengrass/v2/logs/com.example.subscriber.log
 2022-11-13T06:23:21.678Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
 ```
 
+## publisher와 subscriber 삭제
 
+아래와 같이 publisher와 subscriber를 삭제할 수 있습니다. 
+
+```java
+sudo /greengrass/v2/bin/greengrass-cli deployment create --remove="com.example.publisher"
+sudo /greengrass/v2/bin/greengrass-cli deployment create --remove="com.example.subscriber"
+```
