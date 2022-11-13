@@ -54,7 +54,49 @@ Component Name: com.example.publisher
     Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.publisher:pubsub:1":{"operations":["aws.greengrass#PublishToTopic"],"policyDescription":"Allows access to publish to all topics.","resources":["*"]}}}}
 ```
 
+## Subscriber 설치
 
+동일한 방식으로 subscriber를 실행합니다. 
 
+```java
+cd ../src/subscriber
+chmod a+x subscriber.sh
+./subscriber.sh
+```
+
+아래와 같이 com.example.subscriber가 component로 등록된것을 확인할 수 있습니다.
+
+```java
+sudo /greengrass/v2/bin/greengrass-cli component list
+
+Nov 13, 2022 6:18:48 AM software.amazon.awssdk.eventstreamrpc.EventStreamRPCConnection$1 onConnectionSetup
+INFO: Socket connection /greengrass/v2/ipc.socket:8033 to server result [AWS_ERROR_SUCCESS]
+Nov 13, 2022 6:18:48 AM software.amazon.awssdk.eventstreamrpc.EventStreamRPCConnection$1 onProtocolMessage
+INFO: Connection established with event stream RPC server
+Components currently running in Greengrass:
+
+Component Name: com.example.publisher
+    Version: 1.0.0
+    State: RUNNING
+    Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.publisher:pubsub:1":{"operations":["aws.greengrass#PublishToTopic"],"policyDescription":"Allows access to publish to all topics.","resources":["*"]}}}}
+    
+Component Name: com.example.subscriber
+    Version: 1.0.0
+    State: RUNNING
+    Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.subscriber:pubsub:1":{"operations":["aws.greengrass#SubscribeToTopic"],"policyDescription":"Allows access to subscribe to all topics.","resources":["*"]}}}}
+```    
+    
+## local pubsub 동작의 확인
+
+아래와 같이 com.example.publisher가 'local/topic'으로 publish하는 메시지가 com.example.subscriber에서 계속 subscribe되고 있는것을 확인 할 수 있습니다. 
+
+```java
+sudo cat /greengrass/v2/logs/com.example.subscriber.log 
+
+2022-11-13T06:23:06.664Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+2022-11-13T06:23:11.671Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+2022-11-13T06:23:16.672Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+2022-11-13T06:23:21.678Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+```
 
 
