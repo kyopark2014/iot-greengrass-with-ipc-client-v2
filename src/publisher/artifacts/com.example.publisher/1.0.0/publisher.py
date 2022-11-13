@@ -27,9 +27,15 @@ def main():
         exit(1)
 
 def publish_binary_message_to_topic(ipc_client, topic, message):
+    # for Binary
     binary_message = BinaryMessage(message=bytes(message, 'utf-8'))
     publish_message = PublishMessage(binary_message=binary_message)
     ipc_client.publish_to_topic(topic=topic, publish_message=publish_message)
+
+    # for Json
+    # jsonMessage = jsonMessage(message)
+    # publish_message = PublishMessage(jsonMessage=jsonMessage)
+    # ipc_client.publish_to_topic(topic=topic, publish_message=publish_message)
 
 if __name__ == '__main__':
     main()        
