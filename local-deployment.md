@@ -48,10 +48,10 @@ INFO: Socket connection /greengrass/v2/ipc.socket:8033 to server result [AWS_ERR
 Nov 13, 2022 5:57:46 AM software.amazon.awssdk.eventstreamrpc.EventStreamRPCConnection$1 onProtocolMessage
 INFO: Connection established with event stream RPC server
 Components currently running in Greengrass:
-Component Name: aws.greengrass.Cli
-    Version: 2.8.1
+Component Name: com.example.publisher
+    Version: 1.0.0
     State: RUNNING
-    Configuration: {"AuthorizedPosixGroups":null,"AuthorizedWindowsGroups":null}
+    Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.publisher:pubsub:1":{"operations":["aws.greengrass#PublishToTopic"],"policyDescription":"Allows access to publish to all topics.","resources":["*"]}}}}
 ```
 
 
