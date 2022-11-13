@@ -4,7 +4,6 @@ import time
 from awsiot.greengrasscoreipc.clientv2 import GreengrassCoreIPCClientV2
 from awsiot.greengrasscoreipc.model import (
     PublishMessage,
-    JsonMessage,
     BinaryMessage
 )
 
@@ -17,7 +16,12 @@ def main():
 
         try:
             while True: 
+                # binary
                 publish_binary_message_to_topic(ipc_client, topic, message)
+                
+                # json
+                # publish_binary_message_to_topic(ipc_client, topic,  json.dumps(message))
+
                 time.sleep(5)
         except InterruptedError:
             print('Publisher interrupted.')                
@@ -28,15 +32,9 @@ def main():
         exit(1)
 
 def publish_binary_message_to_topic(ipc_client, topic, message):
-    # for Binary
     binary_message = BinaryMessage(message=bytes(message, 'utf-8'))
     publish_message = PublishMessage(binary_message=binary_message)
     ipc_client.publish_to_topic(topic=topic, publish_message=publish_message)
-
-    # for Json
-    # jMessage = JsonMessage(message)
-    # publish_message = PublishMessage(json_message=jMessage)
-    # ipc_client.publish_to_topic(topic=topic, publish_message=publish_message)
 
 if __name__ == '__main__':
     main()        
