@@ -4,17 +4,21 @@
 
 [greengrass-installation](https://github.com/kyopark2014/iot-greengrass/blob/main/preparation.md#greengrass-installation)에 따라 greengrass 디바이스에 greengrass를 설치하고 core device로 등록합니다.
 
-## Local에서 component 테스트 하기
+## Local에서 component 설치 및 시험
 
 [Local에서 IPC Client들 설치후 테스트](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/local-deployment.md)에서는 greengrass 디바이스에 접속해서 local에서 com.example.publisher와 com.example.subscriber를 local에서 설치하고 정상적으로 동작하는것을 로그로 확인하는 방법을 설명합니다. 
 
-## CDK로 component 설치 및 시험 
+## CDK로 component 설치 및 시험
 
-Git Repository를 다운로드하거나, cdk를 사용할 수 있도록 초기화 한후에 [cdk-ipc-client-stack.ts](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/cdk-ipc-client/lib/cdk-ipc-client-stack.ts)을 참조하여 cdk-ipc-client-stack.ts을 편집합니다.
+[AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC (Infrastructure as Code)로서 아래와 같이 code로 component들을 설치하고 관리할 수 있습니다.
 
-### CDK 준비
+
+
+### CDK 준비 및 설치
 
 #### cdk를 신규로 생성하는 경우
+
+아래와 같이 적절한 폴더에 cdk-iot-client를 생성하고 cdk 초기화를 수행합니다. 
 
 ```java
 mkdir cdk-iot-client && cd cdk-iot-client
