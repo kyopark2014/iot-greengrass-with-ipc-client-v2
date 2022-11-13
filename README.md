@@ -72,7 +72,24 @@ Component Name: com.example.subscriber
     Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.subscriber:pubsub:1":{"operations":["aws.greengrass#SubscribeToTopic"],"policyDescription":"Allows access to subscribe to all topics.","resources":["*"]}}}}
 ```    
 
-### 인프라 삭제
+#### Local PUBSUB르로 메시지 수신 확인
+
+아래와 같이 메시지가 수신되는것을 로그로 확인할 수 있습니다. 
+
+```java
+sudo cat /greengrass/v2/logs/com.example.subscriber.log
+```
+
+이때의 결과는 아래와 같습니다. 
+
+```java
+2022-11-13T08:54:19.679Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+2022-11-13T08:54:24.686Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+2022-11-13T08:54:29.692Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+2022-11-13T08:54:34.697Z [INFO] (Copier) com.example.subscriber: stdout. Received new message on topic local/topic: hello. {scriptName=services.com.example.subscriber.lifecycle.Run, serviceName=com.example.subscriber, currentState=RUNNING}
+```
+
+### Component 삭제
 
 Component들을 삭제할 경우에 아래와 같은 명령어를 사용합니다. 
 
