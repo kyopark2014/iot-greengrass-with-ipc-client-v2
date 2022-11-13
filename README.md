@@ -1,4 +1,4 @@
-# AWS CDK로 IPC Client V2를 Greengrass에 Component로 등록하여 사용하기
+# CDK로 IPC Client V2를 Greengrass에 Component로 등록하여 사용하기
 
 ## Greengrass 설치
 
