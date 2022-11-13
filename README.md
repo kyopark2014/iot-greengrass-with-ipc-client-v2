@@ -9,7 +9,7 @@
 
 Git Repository를 다운로드하거나, cdk를 사용할 수 있도록 초기화 한후에 [cdk-ipc-client-stack.ts](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/cdk-ipc-client/lib/cdk-ipc-client-stack.ts)을 참조하여 cdk-ipc-client-stack.ts을 편집합니다.
 
-#### cdk를 생성하는 경우
+#### cdk를 신규로 생성하는 경우
 
 ```java
 mkdir cdk-iot-client && cd cdk-iot-client
