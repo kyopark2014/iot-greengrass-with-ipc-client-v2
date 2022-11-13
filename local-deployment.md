@@ -8,7 +8,7 @@
 
 ### Publisher 설치 
 
-Greengrass 디바이스에 아래와 같이 소스를 다운로드하고 해당 폴더로 이동합니다. 
+Greengrass 디바이스에 접속하여 아래와 같이 소스를 다운로드하고 해당 폴더로 이동합니다. 
 
 ```java
 git clone https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2
