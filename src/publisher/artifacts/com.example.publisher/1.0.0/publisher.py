@@ -4,6 +4,7 @@ import time
 from awsiot.greengrasscoreipc.clientv2 import GreengrassCoreIPCClientV2
 from awsiot.greengrasscoreipc.model import (
     PublishMessage,
+    JsonMessage,
     BinaryMessage
 )
 
@@ -33,8 +34,8 @@ def publish_binary_message_to_topic(ipc_client, topic, message):
     ipc_client.publish_to_topic(topic=topic, publish_message=publish_message)
 
     # for Json
-    # jsonMessage = jsonMessage(message)
-    # publish_message = PublishMessage(jsonMessage=jsonMessage)
+    # jMessage = JsonMessage(message)
+    # publish_message = PublishMessage(json_message=jMessage)
     # ipc_client.publish_to_topic(topic=topic, publish_message=publish_message)
 
 if __name__ == '__main__':
