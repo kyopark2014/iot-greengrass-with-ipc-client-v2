@@ -6,7 +6,7 @@
 
 - [Use the AWS IoT Device SDK to communicate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-authorization-policies)에 소개된 IPC Client V2는 기존 IPC Client V1에 비하여 callback으로 handler를 구현할 수 있고, 동기(synchronous) 방식도 제공할 수 있습니다. 
 
-여기에서는 IPC Client V2에 기반한 component들을 CDK로 정의하고 배포하는 방법에 대해 설명합니다. 이를 통해, Greengrass에 설치된 Device 사이에서 PUBSUB으로 메시지를 교환할 수 있습니다.
+여기에서는 IPC Client V2에 기반한 component들을 CDK로 정의하고 배포하는 방법에 대해 설명합니다. 이를 통해, Greengrass 디바이스에 설치된 Components 또는 IoT Core 사이에서 PUBSUB으로 메시지를 교환할 수 있습니다.
 
 ## Greengrass 통신 방법
 
