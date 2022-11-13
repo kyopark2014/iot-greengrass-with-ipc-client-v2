@@ -8,7 +8,10 @@
 
 ## Greengrass 통신 방법
 
-[Greengrass V2](https://github.com/kyopark2014/iot-greengrass/blob/main/README.md#greengrass-basic)에서는 greengrass.jar, nucleus compoent를 이용하여 component와 IoT Core간 PUBSUB 메시지 방식으로 통신을 할 수 있습니다. 
+[Greengrass V2](https://github.com/kyopark2014/iot-greengrass/blob/main/README.md#greengrass-basic)에서는 greengrass.jar, nucleus component의 PubSub service, IotMqttClient service를 이용하여 component와 IoT Core간 PUBSUB 메시지 방식으로 통신을 할 수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/201517089-27c1e53d-ddbb-4d72-839b-b213ac760215.png)
+
 
 ### Component간 통신 
 
