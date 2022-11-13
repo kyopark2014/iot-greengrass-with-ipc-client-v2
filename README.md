@@ -1,6 +1,16 @@
 # CDK로 IPC Client V2를 Greengrass에 Component로 등록하여 사용하기
 
-[IPC Client V2](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-authorization-policies)에 소개된 
+오픈 소스인 [IoT Greengrass](https://github.com/kyopark2014/iot-greengrass)를 이용하여 디바이스에 edge runtime을 구성하고, [AWS Greengrass](https://ap-northeast-2.console.aws.amazon.com/iot/home?region=ap-northeast-2#/greengrassIntro)에서 component를 배포할 수 있습니다. 
+
+[AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC (Infrastructure as Code)로서 Greengrass의 component를 code로 설치하고 관리할 수 있습니다. 또한, [Use the AWS IoT Device SDK to communicate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-authorization-policies)에 소개된 IPC Client V2는 기존 IPC Client V1에 비하여 callback으로 handler를 구현할 수 있고, 동기(synchronous) 방식도 제공할 수 있습니다. 
+
+여기에서는 IPC Client V2에 기반한 component들을 CDK로 정의하고 배포하는 방법에 대해 설명합니다. 이를 통해, Greengrass에 설치된 Device 사이에서 PUBSUB으로 메시지를 교환할 수 있습니다.
+
+## Greengrass 통신 방법
+
+### Component간 통신 
+
+Greengrass 디바이스에 설치된 component들은 [IPC 통신](https://github.com/kyopark2014/iot-greengrass/blob/main/IPC.md)을 이용하여 PUBSUB 방식으로 메시지를 교환할 수 있습니다. 이때 Compoent
 
 
 ## Greengrass 설치
@@ -12,10 +22,6 @@
 [Local에서 IPC Client들 설치후 테스트](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/local-deployment.md)에서는 greengrass 디바이스에 접속해서 local에서 com.example.publisher와 com.example.subscriber를 local에서 설치하고 정상적으로 동작하는것을 로그로 확인하는 방법을 설명합니다. 
 
 ## CDK로 component 설치 및 시험
-
-[AWS CDK](https://github.com/kyopark2014/technical-summary/blob/main/cdk-introduction.md)는 대표적인 IaC (Infrastructure as Code)로서 아래와 같이 code로 component들을 설치하고 관리할 수 있습니다.
-
-
 
 ### CDK 준비 및 설치
 
