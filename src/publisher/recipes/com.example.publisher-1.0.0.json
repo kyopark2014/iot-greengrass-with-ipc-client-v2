@@ -23,8 +23,11 @@
     },
     "Manifests": [
       {
+        "Platform": {
+          "os": "linux"
+        },
         "Lifecycle": {
-          "Install": "pip3 install awsiotsdk numpy",
+          "Install": "pip3 install awsiotsdk",
           "Run": "python3 -u {artifacts:path}/publisher.py"
         }
       }

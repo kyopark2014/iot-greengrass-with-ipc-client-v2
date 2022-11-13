@@ -23,6 +23,9 @@
     },
     "Manifests": [
       {
+        "Platform": {
+          "os": "linux"
+        },
         "Lifecycle": {
           "Install": "pip3 install awsiotsdk",
           "Run": "python3 -u {artifacts:path}/subscriber.py"
