@@ -14,9 +14,12 @@ def main():
     try:
         ipc_client = GreengrassCoreIPCClientV2()
 
-        while True: 
-            publish_binary_message_to_topic(ipc_client, topic, message)
-            time.sleep(5)
+        try:
+            while True: 
+                publish_binary_message_to_topic(ipc_client, topic, message)
+                time.sleep(5)
+        except InterruptedError:
+            print('Publisher interrupted.')                
 
     except Exception:
         print('Exception occurred', file=sys.stderr)
