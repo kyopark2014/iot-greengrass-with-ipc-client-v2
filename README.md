@@ -1,4 +1,4 @@
-# CDK로 IPC Client V2를 Greengrass에 Component 배포하기
+# CDK로 IPC Client V2를 Greengrass에 Component로 배포하기
 
 오픈 소스인 [IoT Greengrass](https://github.com/kyopark2014/iot-greengrass)를 이용하여 디바이스에 edge runtime을 구성하고, [AWS Greengrass](https://ap-northeast-2.console.aws.amazon.com/iot/home?region=ap-northeast-2#/greengrassIntro)에서 component를 배포할 수 있습니다. 
 
