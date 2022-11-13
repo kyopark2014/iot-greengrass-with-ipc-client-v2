@@ -2,9 +2,7 @@
 
 ## Greengrass 설치 
 
-- greengrass 설치
-
-- greengrass cli 설치 
+편의상 greengrass cli를 [greengrass-cli](https://github.com/kyopark2014/iot-greengrass/blob/main/greengrass-cli.md)에 따라 AWS Console에서 설치합니다. 
 
 ## IPC Client V2 설치 
 
