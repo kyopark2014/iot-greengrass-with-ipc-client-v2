@@ -73,7 +73,7 @@ Component Name: com.example.subscriber
 Component들을 삭제할 경우에 아래와 같은 명령어를 사용합니다. 
 
 ```java
-cdk destroy
+cdk destroy --all
 ```
 
 
