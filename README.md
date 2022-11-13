@@ -73,6 +73,8 @@ Component가 IPC 통신으로 iotMqttClient service로 메시지를 보내면, �
 
 ## CDK로 component 설치 및 시험
 
+[CDK를 이용하여 Greengrass에 IPC Client(V2) 설치](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/tree/main/cdk-ipc-client)에서는 CDK에서 각 compoent를 구성하고 배포하는 방식에 대해 설명하고 있습니다. 
+
 ### CDK 준비 및 설치
 
 #### cdk를 신규로 생성하는 경우
