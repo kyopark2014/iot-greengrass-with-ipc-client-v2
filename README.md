@@ -120,29 +120,29 @@ sudo cat /greengrass/v2/logs/com.example.subscriber.log
 CDK로 인프라를 삭제할때에는 "cdk destory"로 진행할 수 있으나, Greengrass은 디바이스에 설치되므로, [cdk-ipc-client-stack.ts](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/cdk-ipc-client/lib/cdk-ipc-client-stack.ts)의 greengrassv2.CfnDeployment에서 아래의 "com.example.publisher"와 "com.example.subscriber"을 삭제한 후에 재포하거나 console의 deployment에서 삭제하여야 합니다.
 
 ```python
-    // deployments
-    const cfnDeployment = new greengrassv2.CfnDeployment(this, 'MyCfnDeployment', {
-      targetArn: `arn:aws:iot:ap-northeast-2:`+accountId+`:thing/`+deviceName,    
-      components: {
-        "com.example.publisher": {
-          componentVersion: version, 
-        },
-        "com.example.subscriber": {
-          componentVersion: version, 
-        },
-        "aws.greengrass.Cli": {
-          componentVersion: "2.8.1", 
-        }
-      },
-      deploymentName: 'deployment-local-pubsub',
-      deploymentPolicies: {
-        componentUpdatePolicy: {
-          action: 'NOTIFY_COMPONENTS', // NOTIFY_COMPONENTS | SKIP_NOTIFY_COMPONENTS
-          timeoutInSeconds: 60,
-        },
-        failureHandlingPolicy: 'ROLLBACK',  // ROLLBACK | DO_NOTHING
-      },
-    });
+// deployments
+const cfnDeployment = new greengrassv2.CfnDeployment(this, 'MyCfnDeployment', {
+  targetArn: `arn:aws:iot:ap-northeast-2:`+accountId+`:thing/`+deviceName,    
+  components: {
+    "com.example.publisher": {
+      componentVersion: version, 
+    },
+    "com.example.subscriber": {
+      componentVersion: version, 
+    },
+    "aws.greengrass.Cli": {
+      componentVersion: "2.8.1", 
+    }
+  },
+  deploymentName: 'deployment-local-pubsub',
+  deploymentPolicies: {
+    componentUpdatePolicy: {
+      action: 'NOTIFY_COMPONENTS', // NOTIFY_COMPONENTS | SKIP_NOTIFY_COMPONENTS
+      timeoutInSeconds: 60,
+    },
+    failureHandlingPolicy: 'ROLLBACK',  // ROLLBACK | DO_NOTHING
+  },
+});
 ```    
 
 이후, AWS Greengrass의 Component 정보들을 삭제하기 위해 아래와 같은 명령어를 사용합니다. 
