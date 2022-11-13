@@ -13,53 +13,10 @@
 ![image](https://user-images.githubusercontent.com/52392004/201517089-27c1e53d-ddbb-4d72-839b-b213ac760215.png)
 
 
-### Component간 통신 
-
 Greengrass 디바이스에 설치된 component들은 [IPC 통신](https://github.com/kyopark2014/iot-greengrass/blob/main/IPC.md)을 이용하여 PubSub service에 메시지를 보내는 방식으로 통신합니다. 이때 receipe의 ComponentConfiguration에 아래와 같이 "aws.greengrass.ipc.pubsub"을 설정합니다.
-
-```java
-"ComponentConfiguration": {
-  "DefaultConfiguration": {
-    "accessControl": {
-      "aws.greengrass.ipc.pubsub": {
-        "com.example.publisher:pubsub:1": {
-          "policyDescription": "Allows access to publish to all topics.",
-          "operations": [
-            "aws.greengrass#PublishToTopic"
-          ],
-          "resources": [
-            "*"
-          ]
-        }
-      }
-    }
-  }
-}  
-```
-
-### Component와 IoT Core간 통신
 
 Component가 IPC 통신으로 iotMqttClient service로 메시지를 보내면, 이 Topic을 Subscribe하고 있는 IoT Core로 메시지를 보낼 수 있습니다. 아래와 같이 recipe의 ComponentConfiguration에 "aws.greengrass.ipc.mqttproxy"을 설정합니다. 
 
-```java
-"ComponentConfiguration": {
-    "DefaultConfiguration": {
-      "accessControl": {
-        "aws.greengrass.ipc.mqttproxy": {
-          "com.example.publisher:mqttproxy:1": {
-            "policyDescription": "Allows access to publish to all AWS IoT Core topics.",
-            "operations": [
-              "aws.greengrass#PublishToIoTCore"
-            ],
-            "resources": [
-              "*"
-            ]
-          }
-        }
-      }
-    }
-  }
-  ```
 
 
 
