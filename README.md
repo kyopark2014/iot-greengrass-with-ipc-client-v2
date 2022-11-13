@@ -12,6 +12,8 @@
 
 Git Repository를 다운로드하거나, cdk를 사용할 수 있도록 초기화 한후에 [cdk-ipc-client-stack.ts](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/cdk-ipc-client/lib/cdk-ipc-client-stack.ts)을 참조하여 cdk-ipc-client-stack.ts을 편집합니다.
 
+### CDK 준비
+
 #### cdk를 신규로 생성하는 경우
 
 ```java
@@ -24,7 +26,7 @@ cdk init app --language typescript
 아래와 같이 설치합니다. 
 
 ```java
-cdk deploy
+cdk deploy --all
 ```
 
 #### github 코드를 이용하는 경우
@@ -33,9 +35,45 @@ cdk 폴더로 이동하여 아래와 같이 설치 합니다.
 
 ```java
 cd cdk-ipc-client
-cdk deply
+cdk deploy --all
 ```
 
+### 실행결과 확인
 
+Greengrass 디바이스 접속하여 아래와 같이 동작을 확인합니다. 
+
+#### 실행중인 Component 확인 
+
+실행상태를 확인합니다. 
+
+```java
+sudo /greengrass/v2/bin/greengrass-cli component list
+````
+
+아래와 깉이 com.example.publisher와 com.example.subscriber가 정상적으로 설치되고 실행중임을 알 수 있습니다.
+
+```java
+Nov 13, 2022 8:54:18 AM software.amazon.awssdk.eventstreamrpc.EventStreamRPCConnection$1 onConnectionSetup
+INFO: Socket connection /greengrass/v2/ipc.socket:8033 to server result [AWS_ERROR_SUCCESS]
+Nov 13, 2022 8:54:18 AM software.amazon.awssdk.eventstreamrpc.EventStreamRPCConnection$1 onProtocolMessage
+INFO: Connection established with event stream RPC server
+Components currently running in Greengrass:
+Component Name: com.example.publisher
+    Version: 1.0.0
+    State: RUNNING
+    Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.publisher:pubsub:1":{"operations":["aws.greengrass#PublishToTopic"],"policyDescription":"Allows access to publish to all topics.","resources":["*"]}}}}
+Component Name: com.example.subscriber
+    Version: 1.0.0
+    State: RUNNING
+    Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.subscriber:pubsub:1":{"operations":["aws.greengrass#SubscribeToTopic"],"policyDescription":"Allows access to subscribe to all topics.","resources":["*"]}}}}
+```    
+
+### 인프라 삭제
+
+Component들을 삭제할 경우에 아래와 같은 명령어를 사용합니다. 
+
+```java
+cdk destroy
+```
 
 
