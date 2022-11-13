@@ -55,6 +55,7 @@ cdk deploy --all
 cdk 폴더로 이동하여 아래와 같이 설치 합니다. 
 
 ```java
+git clone https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2
 cd cdk-ipc-client
 cdk deploy --all
 ```
