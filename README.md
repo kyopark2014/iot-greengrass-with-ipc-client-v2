@@ -12,7 +12,7 @@
 
 ### Component간 통신 
 
-Greengrass 디바이스에 설치된 component들은 [IPC 통신](https://github.com/kyopark2014/iot-greengrass/blob/main/IPC.md)을 이용하여 PUBSUB 방식으로 메시지를 교환할 수 있습니다. 이때 receipe의 ComponentConfiguration에 "aws.greengrass.ipc.pubsub"을 아래와 같이 설정합니다.
+Greengrass 디바이스에 설치된 component들은 [IPC 통신](https://github.com/kyopark2014/iot-greengrass/blob/main/IPC.md)을 이용하여 PubSub service에 메시지를 보내는 방식으로 통신합니다. 이때 receipe의 ComponentConfiguration에 아래와 같이 "aws.greengrass.ipc.pubsub"을 설정합니다.
 
 ```java
 "ComponentConfiguration": {
