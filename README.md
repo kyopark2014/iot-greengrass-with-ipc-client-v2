@@ -118,7 +118,7 @@ sudo cat /greengrass/v2/logs/com.example.subscriber.log
 
 ### Component 삭제
 
-CDK로 인프라를 삭제할때에는 "cdk destory"로 진행할 수 있으나, Greengrass은 디바이스에 설치되므로, [cdk-ipc-client-stack.ts](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/cdk-ipc-client/lib/cdk-ipc-client-stack.ts)의 greengrassv2.CfnDeployment에서 아래의 "com.example.publisher"와 "com.example.subscriber"을 삭제한 후에 재포하거나 console의 deployment에서 삭제하여야 합니다.
+CDK로 인프라를 삭제할때에는 "cdk destory"로 진행할 수 있으나, Greengrass은 디바이스에 설치되므로, [cdk-ipc-client-stack.ts](https://github.com/kyopark2014/iot-greengrass-with-ipc-client-v2/blob/main/cdk-ipc-client/lib/cdk-ipc-client-stack.ts)의 greengrassv2.CfnDeployment에서 아래의 "com.example.publisher"와 "com.example.subscriber"을 삭제한 후에 재배포하거나 console의 deployment에서 삭제하여야 합니다.
 
 ```python
 // deployments
