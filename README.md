@@ -99,7 +99,7 @@ Component Name: com.example.subscriber
     Configuration: {"accessControl":{"aws.greengrass.ipc.pubsub":{"com.example.subscriber:pubsub:1":{"operations":["aws.greengrass#SubscribeToTopic"],"policyDescription":"Allows access to subscribe to all topics.","resources":["*"]}}}}
 ```    
 
-#### Local PUBSUB르로 메시지 수신 확인
+#### 메시지 수신 확인
 
 아래와 같이 메시지가 수신되는것을 로그로 확인할 수 있습니다. 
 
