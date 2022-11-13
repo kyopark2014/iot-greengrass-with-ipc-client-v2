@@ -1,4 +1,4 @@
-# Local에서 IPC Client들 설치후 테스트
+# Local에서 IPC Client 설치후 테스트
 
 ## Greengrass 설치 
 
