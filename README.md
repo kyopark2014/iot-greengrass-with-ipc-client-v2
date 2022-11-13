@@ -1,5 +1,8 @@
 # IPC Client V2를 Greengras에 Component로 등록하여 사용하기
 
+## Greengrass 설치
+
+[greengrass-installation](https://github.com/kyopark2014/iot-greengrass/blob/main/preparation.md#greengrass-installation)에 따라 greengrass 디바이스에 greengrass를 설치하고 core device로 등록합니다.
 
 ## local에서 client 테스트 하기
 
