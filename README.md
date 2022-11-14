@@ -8,6 +8,11 @@
 
 여기에서는 IPC Client V2에 기반한 component들을 CDK로 정의하고 배포하는 방법에 대해 설명합니다. 이를 통해, Greengrass 디바이스에 설치된 Components 또는 IoT Core 사이에서 PUBSUB으로 메시지를 교환할 수 있습니다.
 
+전체적인 구조는 아래와 같습니다. AWS IoT Device management는 S3에 저장되어 있는 Recipe, Artifact를 이용하여 IoT Greengrass에 Local Component들을 배포할 수 있습니다. 각 component는 서로 [IPC 통신](https://github.com/kyopark2014/iot-greengrass/blob/main/IPC.md)방식으로 메시지를 교환합니다.  
+
+![image](https://user-images.githubusercontent.com/52392004/201563224-75214cd9-3d10-4be7-a3b9-f2f9d7ed5996.png)
+
+
 ## Greengrass 통신 방법
 
 [Greengrass V2](https://github.com/kyopark2014/iot-greengrass/blob/main/README.md#greengrass-basic)부터는 Nucleus component의 PubSub service, IotMqttClient service를 이용하여 component와 IoT Core들이 PUBSUB 메시지 방식으로 통신을 할 수 있습니다. [Greengrass Communication](https://github.com/kyopark2014/iot-greengrass/blob/main/README.md#greengrass-communication)에서는 compnent들 간의 통신과 compoennt와 IoT Core간의 통신 방법에 대해 설명하고 있습니다. 
