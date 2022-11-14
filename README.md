@@ -68,12 +68,13 @@ CDK로 배포가 잘되면, [Component Console](https://ap-northeast-2.console.a
 
 또한, [Deployment Console](https://ap-northeast-2.console.aws.amazon.com/iot/home?region=ap-northeast-2#/greengrass/v2/deployments)에서 "deployment-local-pubsub" deployment가 아래와 같이 설치됩니다.
 
-![image](https://user-images.githubusercontent.com/52392004/201517558-9220d271-c3c9-4a23-afb3-3761050e6458.png)
+![image](https://user-images.githubusercontent.com/52392004/201560006-e8f8d984-224b-4ea1-890f-70b38340df08.png)
 
 
-Greengrass 디바이스 접속하여 아래와 같이 동작을 확인합니다. 
 
 #### 실행중인 Component 확인 
+
+Greengrass 디바이스 접속하여 아래와 같이 동작을 확인합니다. 
 
 실행상태를 확인합니다. 
 
