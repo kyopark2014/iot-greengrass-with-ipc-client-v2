@@ -158,6 +158,11 @@ const cfnDeployment = new greengrassv2.CfnDeployment(this, 'MyCfnDeployment', {
 cdk destroy --all
 ```
 
+### Greengrass Commands와 Memo
+
+유용한 [Greengrass 명령어와 중요한 메모들](https://github.com/kyopark2014/iot-greengrass/blob/main/greengrass-commands.md)를 정리하였습니다.
+
+
 ## Reference 
 
 [Use the AWS IoT Device SDK to communicate with the Greengrass nucleus, other components, and AWS IoT Core](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-authorization-policies)
