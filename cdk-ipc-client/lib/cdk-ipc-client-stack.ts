@@ -10,9 +10,23 @@ export class CdkIpcClientStack extends cdk.Stack {
 
     const deviceName = 'GreengrassCore-18163f7ac3e'
     const accountId = cdk.Stack.of(this).account
+    const bucketName = "gg-depolyment-storage"
+
+    // s3 deployment
+    const s3deploy = new s3Deployment(scope, "s3-deployment", bucketName)      
+
+    // components deployment
+    const deployment = new componentDeployment(scope, "component", bucketName, accountId, deviceName)    
+    deployment.addDependency(s3deploy);
+  }
+}
+
+export class s3Deployment extends cdk.Stack {
+  constructor(scope: Construct, id: string, bucketName: string, props?: cdk.StackProps) {    
+    super(scope, id, props);
 
     const s3Bucket = new s3.Bucket(this, "gg-depolyment-storage",{
-      bucketName: "gg-depolyment-storage",
+      bucketName: bucketName,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
@@ -37,9 +51,6 @@ export class CdkIpcClientStack extends cdk.Stack {
       sources: [s3Deploy.Source.asset("../src")],
       destinationBucket: s3Bucket,
     });
-
-    // deploy components
-    new componentDeployment(scope, "component", s3Bucket.bucketName, accountId, deviceName)    
   }
 }
 
@@ -148,7 +159,7 @@ export class componentDeployment extends cdk.Stack {
           componentVersion: version, 
         },
         "aws.greengrass.Cli": {
-          componentVersion: "2.8.1", 
+          componentVersion: "2.9.1", 
         }
       },
       deploymentName: 'deployment-local-pubsub',
