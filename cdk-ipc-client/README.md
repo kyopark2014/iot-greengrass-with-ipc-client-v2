@@ -150,3 +150,25 @@ export class componentDeployment extends cdk.Stack {
   }
 }
 ```
+
+## CDK Deployment
+
+CDK V2를 설치합니다. 
+
+```java
+npm install aws-cdk-lib
+```
+
+deploy를 수행합니다.
+
+```java
+cdk deploy --all
+```
+
+삭제시는 아래처럼 수행합니다.
+
+```java
+cdk destroy --all
+```
+
+상기 명령어로 S3등 cloud 자원만 삭제됩니다. client의 component 삭제는 재배포를 통해 수행하여야 합니다. 
